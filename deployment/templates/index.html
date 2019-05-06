@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Photo Style Transfer</title>
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet" media="all">
+   <link href="/static/css/main.css" rel="stylesheet" media="all">
+  <link rel="shortcut icon" href="/static/images/lstm.ico">
+  
+</head>
+
+<body>
+  <div class="container">
+    <h3>
+      THE SCREAM
+    </h3>
+
+    <div class="row">
+    <div class="col-sm">
+      <img src="/static/styles/the_scream.jpg">
+    </div>
+    <div class="col-sm">
+      {% for message in screamForm.image.errors %}
+      <div class="flash">{{ message }}</div>
+      {% endfor %}
+
+      <form method=post enctype="multipart/form-data">
+
+        {{ screamForm.hidden_tag() }}
+        {{ screamForm.image }}
+
+        {{ screamForm.submit }}
+      </form>
+    </div>
+    <div class="col-sm">
+      <p>Result: </p>
+      {% if scream_file_url %}
+      <br>
+      <img src="{{ scream_file_url }}">
+      {% endif %}
+    </div>
+  </div>
+  </div>
+
+  <div class="container">
+    <h3>
+      LA MUSE
+    </h3>
+
+    <div class="row">
+    <div class="col-sm">
+      <img src="/static/styles/la_muse.jpg">
+    </div>
+    <div class="col-sm">
+      {% for message in laMuseForm.image.errors %}
+      <div class="flash">{{ message }}</div>
+      {% endfor %}
+
+      <form method=post enctype="multipart/form-data">
+
+        {{ laMuseForm.hidden_tag() }}
+        {{ laMuseForm.image }}
+
+        {{ laMuseForm.submit }}
+      </form>
+    </div>
+    <div class="col-sm">
+      <p>Result: </p>
+      {% if laMuse_file_url %}
+      <br>
+      <img src="{{ laMuse_file_url }}">
+      {% endif %}
+    </div>
+  </div>
+  </div>
+
+  <div class="container">
+    <h3>
+      RAIN PRINCESS
+    </h3>
+
+    <div class="row">
+    <div class="col-sm">
+      <img src="/static/styles/rain_princess.jpg">
+    </div>
+    <div class="col-sm">
+      {% for message in rainPrincessForm.image.errors %}
+      <div class="flash">{{ message }}</div>
+      {% endfor %}
+
+      <form method=post enctype="multipart/form-data">
+
+        {{ rainPrincessForm.hidden_tag() }}
+        {{ rainPrincessForm.image }}
+
+        {{ rainPrincessForm.submit }}
+      </form>
+    </div>
+    <div class="col-sm">
+      <p>Result: </p>
+      {% if rainPrincess_file_url %}
+      <br>
+      <img src="{{ rainPrincess_file_url }}">
+      {% endif %}
+    </div>
+  </div>
+  </div>
+
+  <div class="container">
+    <h3>
+      UDNIE
+    </h3>
+
+    <div class="row">
+    <div class="col-sm">
+      <img src="/static/styles/udnie.jpg">
+    </div>
+    <div class="col-sm">
+      {% for message in udnieForm.image.errors %}
+      <div class="flash">{{ message }}</div>
+      {% endfor %}
+
+      <form method=post enctype="multipart/form-data">
+
+        {{ udnieForm.hidden_tag() }}
+        {{ udnieForm.image }}
+
+        {{ udnieForm.submit }}
+      </form>
+    </div>
+    <div class="col-sm">
+      <p>Result: </p>
+      {% if udnie_file_url %}
+      <br>
+      <img src="{{ udnie_file_url }}">
+      {% endif %}
+    </div>
+  </div>
+  </div>
+
+  <div class="container">
+    <h3>
+      WAVE
+    </h3>
+
+    <div class="row">
+    <div class="col-sm">
+      <img src="/static/styles/wave.jpg">
+    </div>
+    <div class="col-sm">
+      {% for message in waveForm.image.errors %}
+      <div class="flash">{{ message }}</div>
+      {% endfor %}
+
+      <form method=post enctype="multipart/form-data">
+
+        {{ waveForm.hidden_tag() }}
+        {{ waveForm.image }}
+
+        {{ waveForm.submit }}
+      </form>
+    </div>
+    <div class="col-sm">
+      <p>Result: </p>
+      {% if wave_file_url %}
+      <br>
+      <img src="{{ wave_file_url }}">
+      {% endif %}
+    </div>
+  </div>
+  </div>
+
+  <div class="container">
+    <h3>
+      THE SHIPWRECK OF THE MINOTAUR
+    </h3>
+
+    <div class="row">
+    <div class="col-sm">
+      <img src="/static/styles/the_shipwreck_of_the_minotaur.jpg">
+    </div>
+    <div class="col-sm">
+      {% for message in wreckForm.image.errors %}
+      <div class="flash">{{ message }}</div>
+      {% endfor %}
+
+      <form method=post enctype="multipart/form-data">
+
+        {{ wreckForm.hidden_tag() }}
+        {{ wreckForm.image }}
+
+        {{ wreckForm.submit }}
+      </form>
+    </div>
+    <div class="col-sm">
+      <p>Result: </p>
+      {% if wreck_file_url %}
+      <br>
+      <img src="{{ wreck_file_url }}">
+      {% endif %}
+    </div>
+  </div>
+  </div>
+
+</body>
+
+</html>
