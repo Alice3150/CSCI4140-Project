@@ -26,7 +26,10 @@
                 </li>
               </ul>
               <div class="navbar-nav mt-2 mt-md-0">
-                <a class="nav-link active" href="{{url_for('signup')}}">Sign Up / Login</a>
+                <a class="nav-link active" href="{{loginUrl}}">{{loginMessage}}</a>
+              </div>
+              <div class="navbar-nav mt-2 mt-md-0">
+                <a class="nav-link active" href="{{url_for('logout')}}">Log Out</a>
               </div>
             </div>
           </nav>
