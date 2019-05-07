@@ -1,20 +1,5 @@
-.container img {
-    max-height:200px;
-    max-width:200px;
-    height:auto;
-    width:auto;
-}
-
-#cover{
-    display: block;
-    height: 100%;
-    background-image: url('../styles/star.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    float:right;
-    bottom:0;
-    right:0;
+#maincontent{
+    margin-top:70px;
 }
 
 .navbar{
@@ -23,6 +8,10 @@
 
 a{
     color: #4d3d00;
+}
+
+#image{
+    padding-left: 10%;
 }
 
 #forms{
@@ -54,8 +43,4 @@ body {
 
 a:hover{
     color: #1a1400
-}
-
-.container{
-    padding: 10px;
 }
