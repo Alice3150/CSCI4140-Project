@@ -37,13 +37,9 @@
             <div class="container">
                 <div class="row">
                     {% for img in imgs %}
-                    <form class="col-md-3" action="{{url_for('display')}}" method="POST">
-                        <div>
-                            <button type="submit" name="img_url" value="{{img}}">
-                                <img src = "{{img}}" class="img-thumbnail" height="400px" width="100%">
-                            </button>
-                        </div>
-                    </form>
+                    <div id="image_grid">
+                        <a href="{{url_for('display', image_src=img)}}"><img src = "/static/images/{{img}}" class="img-thumbnail" height="400px" width="100%"></a>
+                    </div>
                     {% endfor %}
                 </div>
             </div>
@@ -54,7 +50,7 @@
 
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3">
-            <p>Stamp - a tool to transform your photo into an artwork.</p>
+            <p>Stamp - a tool to transfer your photo into an artwork.</p>
         </div>
         <!-- Copyright -->
 

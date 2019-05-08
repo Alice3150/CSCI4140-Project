@@ -26,6 +26,11 @@ form {
     border-radius: 10px;
 }
 
+#image_grid{
+    width: 400px;
+    height: 300px;
+}
+
 footer{
     background-color: #4d3d00;
     color: aliceblue;

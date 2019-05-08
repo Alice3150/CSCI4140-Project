@@ -222,16 +222,17 @@ def home():
     else:
         wreck_file_url = None
     
-    loginMessage = "<a class='nav-link active' href='signup'>Sign up / Login</a>"
+    login = False
+    _username = None
+    avatar_url = None
 
     if 'username' in session:
         # loginUrl = "#"
         # loginMessage = session['username']
+        login = True
         _username = session['username']
         _user = db.Users.find_one({'name':_username})
         avatar_url = _user['avatar_url']
-        loginMessage = "<a class='nav-link active' href='album'><img id='avatar' src="+avatar_url+" width='30' height='30'></a>" + \
-                            "<a class='nav-link active' href='logout'>Logout</a>"
 
     return render_template('index.html', 
         screamForm=screamForm, scream_file_url=scream_file_url, 
@@ -240,7 +241,7 @@ def home():
         udnieForm=udnieForm, udnie_file_url=udnie_file_url,
         waveForm=waveForm, wave_file_url=wave_file_url,
         wreckForm=wreckForm, wreck_file_url=wreck_file_url,
-        loginMessage=loginMessage)
+        login=login, username=_username, avatar_url=avatar_url)
 
 @app.route('/signup', methods=['POST', 'GET'])
 def signup(name=None):
@@ -296,15 +297,24 @@ def logout():
 @app.route("/display/<image_src>", methods=['post','get'])
 def display(image_src=None):
     image_src = "/static/images/" + image_src
-    return render_template('display.html',image_src = image_src)
+    username = None
+    # if 'username' in 
+    return render_template('display.html',image_src = image_src, username=username)
 
-@app.route("/album/")
-def album():
+@app.route("/album/<username>")
+def album(username):
     #replace with database imgs
     #only for testing
-    imgs = ["/static/styles/la_muse.jpg","/static/styles/la_muse.jpg","/static/styles/la_muse.jpg",
-            "/static/styles/rain_princess.jpg","/static/styles/star.jpg","/static/styles/the_scream.jpg",
-            "/static/styles/the_scream.jpg","/static/styles/rain_princess.jpg","/static/styles/star.jpg"]
+    user = db.Users.find_one({'name':username})
+    image_ids = user['images']
+    imgs = []
+    for i in image_ids:
+        tmp = db.Images.find_one({'_id':i})
+        imgs.append(tmp['filename'].encode())
+    # imgs = ["la_muse.jpg","la_muse.jpg","la_muse.jpg",
+    #         "rain_princess.jpg","star.jpg","the_scream.jpg",
+    #         "the_scream.jpg","rain_princess.jpg","star.jpg"]
+    print imgs
     return render_template('album.html',imgs=imgs)
 
 if __name__ == "__main__":
