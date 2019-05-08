@@ -294,8 +294,9 @@ def logout():
 
 @app.route("/displaytmp/<image_src>", methods=['post','get'])
 def displaytmp(image_src=None):
+    avatar_url = None
     if request.method == "POST":
-
+        
         if 'username' in session:
             username = session['username']
             if request.form.get('discard') == 'Discard':
