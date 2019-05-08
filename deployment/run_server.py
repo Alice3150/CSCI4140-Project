@@ -79,6 +79,15 @@ def home():
         args = ['--checkpoint', scream_ckpt, '--in-path', file_path, '--out-path', img_path]
         transfer.main(args)
         scream_file_url = '/static/images/' + filename
+
+        if 'username' in session:
+            _username = session['username']
+            _user = db.Users.find_one({'name':_username})
+            _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':wreck_file_url})
+            image_id = _image.inserted_id
+            db.Users.update_one({'name': _username}, {'$push': {'images': image_id}})
+            return redirect(url_for('display'), image_src=wreck_file_url)
+
     else:
         scream_file_url = None
 
@@ -95,6 +104,15 @@ def home():
         args = ['--checkpoint', la_muse_ckpt, '--in-path', file_path, '--out-path', img_path]
         transfer.main(args)
         laMuse_file_url = '/static/images/' + filename
+
+        if 'username' in session:
+            _username = session['username']
+            _user = db.Users.find_one({'name':_username})
+            _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':wreck_file_url})
+            image_id = _image.inserted_id
+            db.Users.update_one({'name': _username}, {'$push': {'images': image_id}})
+            return redirect(url_for('display'), image_src=wreck_file_url)
+
     else:
         laMuse_file_url = None
 
@@ -111,6 +129,15 @@ def home():
         args = ['--checkpoint', rain_princess_ckpt, '--in-path', file_path, '--out-path', img_path]
         transfer.main(args)
         rainPrincess_file_url = '/static/images/' + filename
+
+        if 'username' in session:
+            _username = session['username']
+            _user = db.Users.find_one({'name':_username})
+            _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':wreck_file_url})
+            image_id = _image.inserted_id
+            db.Users.update_one({'name': _username}, {'$push': {'images': image_id}})
+            return redirect(url_for('display'), image_src=wreck_file_url)
+
     else:
         rainPrincess_file_url = None
 
@@ -127,6 +154,15 @@ def home():
         args = ['--checkpoint', udnie_ckpt, '--in-path', file_path, '--out-path', img_path]
         transfer.main(args)
         udnie_file_url = '/static/images/' + filename
+
+        if 'username' in session:
+            _username = session['username']
+            _user = db.Users.find_one({'name':_username})
+            _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':wreck_file_url})
+            image_id = _image.inserted_id
+            db.Users.update_one({'name': _username}, {'$push': {'images': image_id}})
+            return redirect(url_for('display'), image_src=wreck_file_url)
+
     else:
         udnie_file_url = None
 
@@ -143,6 +179,15 @@ def home():
         args = ['--checkpoint', wave_ckpt, '--in-path', file_path, '--out-path', img_path]
         transfer.main(args)
         wave_file_url = '/static/images/' + filename
+
+        if 'username' in session:
+            _username = session['username']
+            _user = db.Users.find_one({'name':_username})
+            _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':wreck_file_url})
+            image_id = _image.inserted_id
+            db.Users.update_one({'name': _username}, {'$push': {'images': image_id}})
+            return redirect(url_for('display'), image_src=wreck_file_url)
+
     else:
         wave_file_url = None
 
