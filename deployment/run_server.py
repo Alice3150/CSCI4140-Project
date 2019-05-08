@@ -19,25 +19,25 @@ app = Flask(__name__)
 app.secret_key = "secret key"
 
 # please set the following CONSTANTS before running application
-PROJECT_PATH = 'E:\\Alice\\project\\CSCI4140-Project\\'
-APP_PATH = 'E:\\Alice\\project\\CSCI4140-Project\\deployment\\'
+# PROJECT_PATH = 'E:\\Alice\\project\\CSCI4140-Project\\'
+# APP_PATH = 'E:\\Alice\\project\\CSCI4140-Project\\deployment\\'
 
-# PROJECT_PATH = '/mnt/d/Study/opensourse/CSCI4140-Project/'
-# APP_PATH = '/mnt/d/Study/opensourse/CSCI4140-Project/deployment/'
+PROJECT_PATH = '/mnt/d/Study/opensourse/CSCI4140-Project/'
+APP_PATH = '/mnt/d/Study/opensourse/CSCI4140-Project/deployment/'
 
-la_muse_ckpt = PROJECT_PATH + 'model_styles\\la_muse.ckpt'
-rain_princess_ckpt = PROJECT_PATH + 'model_styles\\rain_princess.ckpt'
-scream_ckpt = PROJECT_PATH + 'model_styles\\scream.ckpt'
-udnie_ckpt = PROJECT_PATH + 'model_styles\\udnie.ckpt'
-wave_ckpt = PROJECT_PATH + 'model_styles\\wave.ckpt'
-wreck_ckpt = PROJECT_PATH + 'model_styles\\wreck.ckpt'
+# la_muse_ckpt = PROJECT_PATH + 'model_styles\\la_muse.ckpt'
+# rain_princess_ckpt = PROJECT_PATH + 'model_styles\\rain_princess.ckpt'
+# scream_ckpt = PROJECT_PATH + 'model_styles\\scream.ckpt'
+# udnie_ckpt = PROJECT_PATH + 'model_styles\\udnie.ckpt'
+# wave_ckpt = PROJECT_PATH + 'model_styles\\wave.ckpt'
+# wreck_ckpt = PROJECT_PATH + 'model_styles\\wreck.ckpt'
 
-# la_muse_ckpt = PROJECT_PATH + 'model_styles/la_muse.ckpt'
-# rain_princess_ckpt = PROJECT_PATH + 'model_styles/rain_princess.ckpt'
-# scream_ckpt = PROJECT_PATH + 'model_styles/scream.ckpt'
-# udnie_ckpt = PROJECT_PATH + 'model_styles/udnie.ckpt'
-# wave_ckpt = PROJECT_PATH + 'model_styles/wave.ckpt'
-# wreck_ckpt = PROJECT_PATH + 'model_styles/wreck.ckpt'
+la_muse_ckpt = PROJECT_PATH + 'model_styles/la_muse.ckpt'
+rain_princess_ckpt = PROJECT_PATH + 'model_styles/rain_princess.ckpt'
+scream_ckpt = PROJECT_PATH + 'model_styles/scream.ckpt'
+udnie_ckpt = PROJECT_PATH + 'model_styles/udnie.ckpt'
+wave_ckpt = PROJECT_PATH + 'model_styles/wave.ckpt'
+wreck_ckpt = PROJECT_PATH + 'model_styles/wreck.ckpt'
 
 # Connect to the database
 # Please specify your database
@@ -70,8 +70,8 @@ def home():
         image = screamForm.image.data
         current_time_str = datetime.datetime.now().strftime("%I%M%p%B%d%Y")
         filename = secure_filename(current_time_str + image.filename)
-        img_path = APP_PATH + 'static\\images'
-        # img_path = APP_PATH + 'static/images'
+        # img_path = APP_PATH + 'static\\images'
+        img_path = APP_PATH + 'static/images'
         file_path = os.path.join(
             img_path, filename
         )
@@ -84,9 +84,10 @@ def home():
 
     if laMuseForm.validate_on_submit() and laMuseForm.image.data:
         image = laMuseForm.image.data
-        filename = secure_filename(image.filename)
-        img_path = APP_PATH + 'static\\images'
-        # img_path = APP_PATH + 'static/images'
+        current_time_str = datetime.datetime.now().strftime("%I%M%p%B%d%Y")
+        filename = secure_filename(current_time_str + image.filename)
+        # img_path = APP_PATH + 'static\\images'
+        img_path = APP_PATH + 'static/images'
         file_path = os.path.join(
             img_path, filename
         )
@@ -99,9 +100,10 @@ def home():
 
     if rainPrincessForm.validate_on_submit() and rainPrincessForm.image.data:
         image = rainPrincessForm.image.data
-        filename = secure_filename(image.filename)
-        img_path = APP_PATH + 'static\\images'
-        # img_path = APP_PATH + 'static/images'
+        current_time_str = datetime.datetime.now().strftime("%I%M%p%B%d%Y")
+        filename = secure_filename(current_time_str + image.filename)
+        # img_path = APP_PATH + 'static\\images'
+        img_path = APP_PATH + 'static/images'
         file_path = os.path.join(
             img_path, filename
         )
@@ -114,9 +116,10 @@ def home():
 
     if udnieForm.validate_on_submit() and udnieForm.image.data:
         image = udnieForm.image.data
-        filename = secure_filename(image.filename)
-        img_path = APP_PATH + 'static\\images'
-        # img_path = APP_PATH + 'static/images'
+        current_time_str = datetime.datetime.now().strftime("%I%M%p%B%d%Y")
+        filename = secure_filename(current_time_str + image.filename)
+        # img_path = APP_PATH + 'static\\images'
+        img_path = APP_PATH + 'static/images'
         file_path = os.path.join(
             img_path, filename
         )
@@ -129,9 +132,10 @@ def home():
 
     if waveForm.validate_on_submit() and waveForm.image.data:
         image = waveForm.image.data
-        filename = secure_filename(image.filename)
-        img_path = APP_PATH + 'static\\images'
-        # img_path = APP_PATH + 'static/images'
+        current_time_str = datetime.datetime.now().strftime("%I%M%p%B%d%Y")
+        filename = secure_filename(current_time_str + image.filename)
+        # img_path = APP_PATH + 'static\\images'
+        img_path = APP_PATH + 'static/images'
         file_path = os.path.join(
             img_path, filename
         )
@@ -144,9 +148,10 @@ def home():
 
     if wreckForm.validate_on_submit() and wreckForm.image.data:
         image = wreckForm.image.data
-        filename = secure_filename(image.filename)
-        img_path = APP_PATH + 'static\\images'
-        # img_path = APP_PATH + 'static/images'
+        current_time_str = datetime.datetime.now().strftime("%I%M%p%B%d%Y")
+        filename = secure_filename(current_time_str + image.filename)
+        # img_path = APP_PATH + 'static\\images'
+        img_path = APP_PATH + 'static/images'
         file_path = os.path.join(
             img_path, filename
         )
@@ -154,6 +159,15 @@ def home():
         args = ['--checkpoint', wreck_ckpt, '--in-path', file_path, '--out-path', img_path]
         transfer.main(args)
         wreck_file_url = '/static/images/' + filename
+        
+        if 'username' in session:
+            _username = session['username']
+            _user = db.Users.find_one({'name':_username})
+            _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':wreck_file_url})
+            image_id = _image.inserted_id
+            db.Users.update_one({'name': _username}, {'$push': {'images': image_id}})
+            return redirect(url_for('display'), image_src=wreck_file_url)
+
     else:
         wreck_file_url = None
     
@@ -206,6 +220,7 @@ def login(name=None):
         _name = request.form['inputUsername']
         _password = request.form['inputPassword']
         user = db.Users.find_one({'name':_name}, {'password':_password})
+        print user
 
         if user == None:
             error = "Username not exist!"
