@@ -86,7 +86,8 @@ def home():
             _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':scream_file_url})
             image_id = _image.inserted_id
             db.Users.update_one({'name': _username}, {'$push': {'images': image_id}})
-            return redirect(url_for('display', image_src=filename))
+        
+        return redirect(url_for('display', image_src=filename))
 
     else:
         scream_file_url = None
@@ -111,7 +112,8 @@ def home():
             _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':laMuse_file_url})
             image_id = _image.inserted_id
             db.Users.update_one({'name': _username}, {'$push': {'images': image_id}})
-            return redirect(url_for('display', image_src=filename))
+            
+        return redirect(url_for('display', image_src=filename))
 
     else:
         laMuse_file_url = None
@@ -136,7 +138,8 @@ def home():
             _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':rainPrincess_file_url})
             image_id = _image.inserted_id
             db.Users.update_one({'name': _username}, {'$push': {'images': image_id}})
-            return redirect(url_for('display', image_src=filename))
+        
+        return redirect(url_for('display', image_src=filename))
 
     else:
         rainPrincess_file_url = None
@@ -161,7 +164,8 @@ def home():
             _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':udnie_file_url})
             image_id = _image.inserted_id
             db.Users.update_one({'name': _username}, {'$push': {'images': image_id}})
-            return redirect(url_for('display', image_src=filename))
+
+        return redirect(url_for('display', image_src=filename))
 
     else:
         udnie_file_url = None
@@ -186,7 +190,8 @@ def home():
             _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':wave_file_url})
             image_id = _image.inserted_id
             db.Users.update_one({'name': _username}, {'$push': {'images': image_id}})
-            return redirect(url_for('display', image_src=filename))
+        
+        return redirect(url_for('display', image_src=filename))
 
     else:
         wave_file_url = None
@@ -211,17 +216,22 @@ def home():
             _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':wreck_file_url})
             image_id = _image.inserted_id
             db.Users.update_one({'name': _username}, {'$push': {'images': image_id}})
-            return redirect(url_for('display', image_src=filename))
+        
+        return redirect(url_for('display', image_src=filename))
 
     else:
         wreck_file_url = None
     
-    loginMessage = "Sign up / Log in"
-    loginUrl = "signup"
+    loginMessage = "<a class='nav-link active' href='signup'>Sign up / Login</a>"
 
     if 'username' in session:
-        loginUrl = "#"
-        loginMessage = session['username']
+        # loginUrl = "#"
+        # loginMessage = session['username']
+        _username = session['username']
+        _user = db.Users.find_one({'name':_username})
+        avatar_url = _user['avatar_url']
+        loginMessage = "<a class='nav-link active' href='album'><img id='avatar' src="+avatar_url+" width='30' height='30'></a>" + \
+                            "<a class='nav-link active' href='logout'>Logout</a>"
 
     return render_template('index.html', 
         screamForm=screamForm, scream_file_url=scream_file_url, 
@@ -230,7 +240,7 @@ def home():
         udnieForm=udnieForm, udnie_file_url=udnie_file_url,
         waveForm=waveForm, wave_file_url=wave_file_url,
         wreckForm=wreckForm, wreck_file_url=wreck_file_url,
-        loginMessage=loginMessage, loginUrl=loginUrl)
+        loginMessage=loginMessage)
 
 @app.route('/signup', methods=['POST', 'GET'])
 def signup(name=None):

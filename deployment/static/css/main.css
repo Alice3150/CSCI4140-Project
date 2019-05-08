@@ -5,7 +5,12 @@
     width:auto;
 }
 
-#cover{
+#avatar{
+    height: 10px;
+    width: 10px;
+}
+
+.bg{
     display: block;
     height: 100%;
     width: 100%;
