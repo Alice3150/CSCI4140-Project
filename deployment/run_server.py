@@ -196,18 +196,16 @@ def signup(name=None):
 @app.route('/login', methods=['POST', 'GET'])
 def login(name=None):
     error = ""
-    count = 0
 
     if request.method == 'POST':
         _name = request.form['inputUsername']
         _password = request.form['inputPassword']
-        users = db.Users.find({'name':_name}, {'password':_password})
+        user = db.Users.find_one({'name':_name}, {'password':_password})
 
-        for u in users:
-            count += 1
-
-        if count == 0:
-            error="Username or password not correct!"
+        if user == None:
+            error = "Username not exist!"
+        elif user['password'] != _password:
+            error = "Password incorrect!"
         else:
             session['username'] = _name
             return redirect(url_for('home'))
