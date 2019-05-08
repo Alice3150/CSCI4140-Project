@@ -29,6 +29,7 @@ form {
 #image_grid{
     width: 400px;
     height: 300px;
+    padding: 10px;
 }
 
 footer{
@@ -48,4 +49,9 @@ body {
 
 a:hover{
     color: #1a1400
+}
+
+#sub{
+    width: auto;
+    height: auto;
 }

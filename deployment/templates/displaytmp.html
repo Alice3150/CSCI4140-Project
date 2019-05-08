@@ -36,17 +36,30 @@
                   </nav>
             </header>
 
-    <main role="main">
-        <div class="album py-5" background-color="#ffcc00" style="margin-top:20px">
-            <div class="container">
-                <div class="row">
-                    {% for img in imgs %}
-                    <div id="image_grid">
-                        <a href="{{url_for('display', image_src=img)}}"><img src = "/static/images/{{img}}" id="sub" class="img-fluid" alt="Responsive image"></a>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
+    <main>
+        <div align="center" style="margin-top:60px">
+            <img src="{{image_src}}">
+        </div>
+        <div>
+            {% if login %}
+            <a href="{{url_for('album', username=username)}}">
+
+                <button type="button" class="btn btn-warning btn-lg" > 
+                    << Back To Album 
+                </button>
+            </a>
+            <form method="post">
+                    <input type="submit" name="save" value="Save">
+                    <input type="submit" name="discard" value="Discard" >
+            </form>
+            {% else %}
+            <a href="{{url_for('home')}}">
+
+                    <button type="button" class="btn btn-warning btn-lg" > 
+                        << Back To Home
+                    </button>
+            </a>
+            {% endif %}
         </div>
     </main>
 
@@ -54,7 +67,7 @@
 
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3">
-            <p>Stamp - a tool to transfer your photo into an artwork.</p>
+            <p>Stamp - a tool to transform your photo into an artwork.</p>
         </div>
         <!-- Copyright -->
 

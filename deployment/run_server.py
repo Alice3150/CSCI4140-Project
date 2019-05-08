@@ -80,14 +80,14 @@ def home():
         transfer.main(args)
         scream_file_url = '/static/images/' + filename
 
-        if 'username' in session:
-            _username = session['username']
-            _user = db.Users.find_one({'name':_username})
-            _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':scream_file_url})
-            image_id = _image.inserted_id
-            db.Users.update_one({'name': _username}, {'$push': {'images': image_id}})
+        # if 'username' in session:
+        #     _username = session['username']
+        #     _user = db.Users.find_one({'name':_username})
+        #     _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':scream_file_url})
+        #     image_id = _image.inserted_id
+        #     db.Users.update_one({'name': _username}, {'$push': {'images': image_id}})
         
-        return redirect(url_for('display', image_src=filename))
+        return redirect(url_for('displaytmp', image_src=filename))
 
     else:
         scream_file_url = None
@@ -106,14 +106,14 @@ def home():
         transfer.main(args)
         laMuse_file_url = '/static/images/' + filename
 
-        if 'username' in session:
-            _username = session['username']
-            _user = db.Users.find_one({'name':_username})
-            _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':laMuse_file_url})
-            image_id = _image.inserted_id
-            db.Users.update_one({'name': _username}, {'$push': {'images': image_id}})
+        # if 'username' in session:
+        #     _username = session['username']
+        #     _user = db.Users.find_one({'name':_username})
+        #     _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':laMuse_file_url})
+        #     image_id = _image.inserted_id
+        #     db.Users.update_one({'name': _username}, {'$push': {'images': image_id}})
             
-        return redirect(url_for('display', image_src=filename))
+        return redirect(url_for('displaytmp', image_src=filename))
 
     else:
         laMuse_file_url = None
@@ -132,14 +132,14 @@ def home():
         transfer.main(args)
         rainPrincess_file_url = '/static/images/' + filename
 
-        if 'username' in session:
-            _username = session['username']
-            _user = db.Users.find_one({'name':_username})
-            _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':rainPrincess_file_url})
-            image_id = _image.inserted_id
-            db.Users.update_one({'name': _username}, {'$push': {'images': image_id}})
+        # if 'username' in session:
+        #     _username = session['username']
+        #     _user = db.Users.find_one({'name':_username})
+        #     _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':rainPrincess_file_url})
+        #     image_id = _image.inserted_id
+        #     db.Users.update_one({'name': _username}, {'$push': {'images': image_id}})
         
-        return redirect(url_for('display', image_src=filename))
+        return redirect(url_for('displaytmp', image_src=filename))
 
     else:
         rainPrincess_file_url = None
@@ -158,14 +158,14 @@ def home():
         transfer.main(args)
         udnie_file_url = '/static/images/' + filename
 
-        if 'username' in session:
-            _username = session['username']
-            _user = db.Users.find_one({'name':_username})
-            _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':udnie_file_url})
-            image_id = _image.inserted_id
-            db.Users.update_one({'name': _username}, {'$push': {'images': image_id}})
+        # if 'username' in session:
+        #     _username = session['username']
+        #     _user = db.Users.find_one({'name':_username})
+        #     _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':udnie_file_url})
+        #     image_id = _image.inserted_id
+        #     db.Users.update_one({'name': _username}, {'$push': {'images': image_id}})
 
-        return redirect(url_for('display', image_src=filename))
+        return redirect(url_for('displaytmp', image_src=filename))
 
     else:
         udnie_file_url = None
@@ -184,14 +184,14 @@ def home():
         transfer.main(args)
         wave_file_url = '/static/images/' + filename
 
-        if 'username' in session:
-            _username = session['username']
-            _user = db.Users.find_one({'name':_username})
-            _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':wave_file_url})
-            image_id = _image.inserted_id
-            db.Users.update_one({'name': _username}, {'$push': {'images': image_id}})
+        # if 'username' in session:
+        #     _username = session['username']
+        #     _user = db.Users.find_one({'name':_username})
+        #     _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':wave_file_url})
+        #     image_id = _image.inserted_id
+        #     db.Users.update_one({'name': _username}, {'$push': {'images': image_id}})
         
-        return redirect(url_for('display', image_src=filename))
+        return redirect(url_for('displaytmp', image_src=filename))
 
     else:
         wave_file_url = None
@@ -210,14 +210,14 @@ def home():
         transfer.main(args)
         wreck_file_url = '/static/images/' + filename
         
-        if 'username' in session:
-            _username = session['username']
-            _user = db.Users.find_one({'name':_username})
-            _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':wreck_file_url})
-            image_id = _image.inserted_id
-            db.Users.update_one({'name': _username}, {'$push': {'images': image_id}})
+        # if 'username' in session:
+        #     _username = session['username']
+        #     _user = db.Users.find_one({'name':_username})
+        #     _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':wreck_file_url})
+        #     image_id = _image.inserted_id
+        #     db.Users.update_one({'name': _username}, {'$push': {'images': image_id}})
         
-        return redirect(url_for('display', image_src=filename))
+        return redirect(url_for('displaytmp', image_src=filename))
 
     else:
         wreck_file_url = None
@@ -292,30 +292,84 @@ def logout():
     session.pop('username', None)
     return redirect(url_for('home'))
 
+@app.route("/displaytmp/<image_src>", methods=['post','get'])
+def displaytmp(image_src=None):
+    if request.method == "POST":
+
+        if 'username' in session:
+            username = session['username']
+            if request.form.get('discard') == 'Discard':
+                return redirect(url_for('album', username=username))
+
+            elif request.form.get('save') == 'Save':
+                fileurl = "/static/images/" + image_src
+                _user = db.Users.find_one({'name':username})
+                _image = db.Images.insert_one({'filename':image_src, 'name':_user.get('_id'), 'fileurl':fileurl})
+                image_id = _image.inserted_id
+                db.Users.update_one({'name': username}, {'$push': {'images': image_id}})
+                return redirect(url_for('album', username=username))
+
+    image_src = "/static/images/" + image_src
+    username = None
+    login = False
+    if 'username' in session:
+        username = session['username']
+        login = True
+        _user = db.Users.find_one({'name':username})
+        avatar_url = _user['avatar_url']
+    return render_template('displaytmp.html',image_src = image_src, username=username, login=login, avatar_url=avatar_url)
+
+
 #only implement album to display, not main page to display
 #also not the user profile
 @app.route("/display/<image_src>", methods=['post','get'])
 def display(image_src=None):
+    if request.method == "POST":
+        if 'username' in session:
+            username = session['username']
+            tmp = db.Images.find_one({'filename':image_src})
+            image_id = tmp['_id']
+            db.Users.update_one({'name': username}, {'$pull': {'images': image_id}})
+            _image = db.Images.delete_one({'filename':image_src}) 
+            return redirect(url_for('album', username=username))
+
     image_src = "/static/images/" + image_src
     username = None
-    # if 'username' in 
-    return render_template('display.html',image_src = image_src, username=username)
+    login = False
+    if 'username' in session:
+        username = session['username']
+        login = True
+        _user = db.Users.find_one({'name':username})
+        avatar_url = _user['avatar_url']
+    return render_template('display.html',image_src = image_src, username=username, login=login, avatar_url=avatar_url)
+
+@app.route('/error')
+def error(error):
+    return error
 
 @app.route("/album/<username>")
 def album(username):
     #replace with database imgs
     #only for testing
+    login = True
+    if not 'username' in session:
+        login = False
+        return redirect(url_for('error', error='Invalid access!'))
+    if username != session['username']:
+        return redirect(url_for('error', error='Invalid access!'))
     user = db.Users.find_one({'name':username})
+    avatar_url = user['avatar_url']
     image_ids = user['images']
     imgs = []
     for i in image_ids:
         tmp = db.Images.find_one({'_id':i})
-        imgs.append(tmp['filename'].encode())
+        if tmp:
+            imgs.append(tmp['filename'].encode())
     # imgs = ["la_muse.jpg","la_muse.jpg","la_muse.jpg",
     #         "rain_princess.jpg","star.jpg","the_scream.jpg",
     #         "the_scream.jpg","rain_princess.jpg","star.jpg"]
     print imgs
-    return render_template('album.html',imgs=imgs)
+    return render_template('album.html',imgs=imgs, username=username, login=login, avatar_url=avatar_url)
 
 if __name__ == "__main__":
     print(("* Loading model and Flask starting server..."
