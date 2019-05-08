@@ -18,22 +18,25 @@ app = Flask(__name__)
 app.secret_key = "secret key"
 
 # please set the following CONSTANTS before running application
-PROJECT_PATH = '/mnt/d/Study/opensourse/CSCI4140-Project/'
-APP_PATH = '/mnt/d/Study/opensourse/CSCI4140-Project/deployment/'
+PROJECT_PATH = 'E:\\Alice\\project\\CSCI4140-Project\\'
+APP_PATH = 'E:\\Alice\\project\\CSCI4140-Project\\deployment\\'
 
-# la_muse_ckpt = PROJECT_PATH + 'model_styles\\la_muse.ckpt'
-# rain_princess_ckpt = PROJECT_PATH + 'model_styles\\rain_princess.ckpt'
-# scream_ckpt = PROJECT_PATH + 'model_styles\\scream.ckpt'
-# udnie_ckpt = PROJECT_PATH + 'model_styles\\udnie.ckpt'
-# wave_ckpt = PROJECT_PATH + 'model_styles\\wave.ckpt'
-# wreck_ckpt = PROJECT_PATH + 'model_styles\\wreck.ckpt'
+# PROJECT_PATH = '/mnt/d/Study/opensourse/CSCI4140-Project/'
+# APP_PATH = '/mnt/d/Study/opensourse/CSCI4140-Project/deployment/'
 
-la_muse_ckpt = PROJECT_PATH + 'model_styles/la_muse.ckpt'
-rain_princess_ckpt = PROJECT_PATH + 'model_styles/rain_princess.ckpt'
-scream_ckpt = PROJECT_PATH + 'model_styles/scream.ckpt'
-udnie_ckpt = PROJECT_PATH + 'model_styles/udnie.ckpt'
-wave_ckpt = PROJECT_PATH + 'model_styles/wave.ckpt'
-wreck_ckpt = PROJECT_PATH + 'model_styles/wreck.ckpt'
+la_muse_ckpt = PROJECT_PATH + 'model_styles\\la_muse.ckpt'
+rain_princess_ckpt = PROJECT_PATH + 'model_styles\\rain_princess.ckpt'
+scream_ckpt = PROJECT_PATH + 'model_styles\\scream.ckpt'
+udnie_ckpt = PROJECT_PATH + 'model_styles\\udnie.ckpt'
+wave_ckpt = PROJECT_PATH + 'model_styles\\wave.ckpt'
+wreck_ckpt = PROJECT_PATH + 'model_styles\\wreck.ckpt'
+
+# la_muse_ckpt = PROJECT_PATH + 'model_styles/la_muse.ckpt'
+# rain_princess_ckpt = PROJECT_PATH + 'model_styles/rain_princess.ckpt'
+# scream_ckpt = PROJECT_PATH + 'model_styles/scream.ckpt'
+# udnie_ckpt = PROJECT_PATH + 'model_styles/udnie.ckpt'
+# wave_ckpt = PROJECT_PATH + 'model_styles/wave.ckpt'
+# wreck_ckpt = PROJECT_PATH + 'model_styles/wreck.ckpt'
 
 # Connect to the database
 # Please specify your database
@@ -65,8 +68,8 @@ def home():
     if screamForm.validate_on_submit() and screamForm.image.data:
         image = screamForm.image.data
         filename = secure_filename(image.filename)
-        # img_path = APP_PATH + 'static\\images'
-        img_path = APP_PATH + 'static/images'
+        img_path = APP_PATH + 'static\\images'
+        # img_path = APP_PATH + 'static/images'
         file_path = os.path.join(
             img_path, filename
         )
@@ -80,8 +83,8 @@ def home():
     if laMuseForm.validate_on_submit() and laMuseForm.image.data:
         image = laMuseForm.image.data
         filename = secure_filename(image.filename)
-        # img_path = APP_PATH + 'static\\images'
-        img_path = APP_PATH + 'static/images'
+        img_path = APP_PATH + 'static\\images'
+        # img_path = APP_PATH + 'static/images'
         file_path = os.path.join(
             img_path, filename
         )
@@ -95,8 +98,8 @@ def home():
     if rainPrincessForm.validate_on_submit() and rainPrincessForm.image.data:
         image = rainPrincessForm.image.data
         filename = secure_filename(image.filename)
-        # img_path = APP_PATH + 'static\\images'
-        img_path = APP_PATH + 'static/images'
+        img_path = APP_PATH + 'static\\images'
+        # img_path = APP_PATH + 'static/images'
         file_path = os.path.join(
             img_path, filename
         )
@@ -110,8 +113,8 @@ def home():
     if udnieForm.validate_on_submit() and udnieForm.image.data:
         image = udnieForm.image.data
         filename = secure_filename(image.filename)
-        # img_path = APP_PATH + 'static\\images'
-        img_path = APP_PATH + 'static/images'
+        img_path = APP_PATH + 'static\\images'
+        # img_path = APP_PATH + 'static/images'
         file_path = os.path.join(
             img_path, filename
         )
@@ -125,8 +128,8 @@ def home():
     if waveForm.validate_on_submit() and waveForm.image.data:
         image = waveForm.image.data
         filename = secure_filename(image.filename)
-        # img_path = APP_PATH + 'static\\images'
-        img_path = APP_PATH + 'static/images'
+        img_path = APP_PATH + 'static\\images'
+        # img_path = APP_PATH + 'static/images'
         file_path = os.path.join(
             img_path, filename
         )
@@ -140,8 +143,8 @@ def home():
     if wreckForm.validate_on_submit() and wreckForm.image.data:
         image = wreckForm.image.data
         filename = secure_filename(image.filename)
-        # img_path = APP_PATH + 'static\\images'
-        img_path = APP_PATH + 'static/images'
+        img_path = APP_PATH + 'static\\images'
+        # img_path = APP_PATH + 'static/images'
         file_path = os.path.join(
             img_path, filename
         )
