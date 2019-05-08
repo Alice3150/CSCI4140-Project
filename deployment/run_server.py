@@ -2,6 +2,7 @@ import tensorflow as tf
 from flask import Flask, render_template, request, url_for, redirect, flash, make_response, session
 from wtforms import SubmitField
 import os
+import datetime
 from pymongo import MongoClient
 
 from flask_wtf import FlaskForm
@@ -67,7 +68,8 @@ def home():
 
     if screamForm.validate_on_submit() and screamForm.image.data:
         image = screamForm.image.data
-        filename = secure_filename(image.filename)
+        current_time_str = datetime.datetime.now().strftime("%I%M%p%B%d%Y")
+        filename = secure_filename(current_time_str + image.filename)
         img_path = APP_PATH + 'static\\images'
         # img_path = APP_PATH + 'static/images'
         file_path = os.path.join(
