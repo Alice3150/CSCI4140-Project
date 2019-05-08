@@ -83,10 +83,10 @@ def home():
         if 'username' in session:
             _username = session['username']
             _user = db.Users.find_one({'name':_username})
-            _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':wreck_file_url})
+            _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':scream_file_url})
             image_id = _image.inserted_id
             db.Users.update_one({'name': _username}, {'$push': {'images': image_id}})
-            return redirect(url_for('display'), image_src=wreck_file_url)
+            return redirect(url_for('display', image_src=filename))
 
     else:
         scream_file_url = None
@@ -108,10 +108,10 @@ def home():
         if 'username' in session:
             _username = session['username']
             _user = db.Users.find_one({'name':_username})
-            _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':wreck_file_url})
+            _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':laMuse_file_url})
             image_id = _image.inserted_id
             db.Users.update_one({'name': _username}, {'$push': {'images': image_id}})
-            return redirect(url_for('display'), image_src=wreck_file_url)
+            return redirect(url_for('display', image_src=filename))
 
     else:
         laMuse_file_url = None
@@ -133,10 +133,10 @@ def home():
         if 'username' in session:
             _username = session['username']
             _user = db.Users.find_one({'name':_username})
-            _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':wreck_file_url})
+            _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':rainPrincess_file_url})
             image_id = _image.inserted_id
             db.Users.update_one({'name': _username}, {'$push': {'images': image_id}})
-            return redirect(url_for('display'), image_src=wreck_file_url)
+            return redirect(url_for('display', image_src=filename))
 
     else:
         rainPrincess_file_url = None
@@ -158,10 +158,10 @@ def home():
         if 'username' in session:
             _username = session['username']
             _user = db.Users.find_one({'name':_username})
-            _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':wreck_file_url})
+            _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':udnie_file_url})
             image_id = _image.inserted_id
             db.Users.update_one({'name': _username}, {'$push': {'images': image_id}})
-            return redirect(url_for('display'), image_src=wreck_file_url)
+            return redirect(url_for('display', image_src=filename))
 
     else:
         udnie_file_url = None
@@ -183,10 +183,10 @@ def home():
         if 'username' in session:
             _username = session['username']
             _user = db.Users.find_one({'name':_username})
-            _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':wreck_file_url})
+            _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':wave_file_url})
             image_id = _image.inserted_id
             db.Users.update_one({'name': _username}, {'$push': {'images': image_id}})
-            return redirect(url_for('display'), image_src=wreck_file_url)
+            return redirect(url_for('display', image_src=filename))
 
     else:
         wave_file_url = None
@@ -211,7 +211,7 @@ def home():
             _image = db.Images.insert_one({'filename':filename, 'name':_user.get('_id'), 'fileurl':wreck_file_url})
             image_id = _image.inserted_id
             db.Users.update_one({'name': _username}, {'$push': {'images': image_id}})
-            return redirect(url_for('display'), image_src=wreck_file_url)
+            return redirect(url_for('display', image_src=filename))
 
     else:
         wreck_file_url = None
@@ -251,7 +251,7 @@ def signup(name=None):
         elif _password != _rpassword:
             error="password not coincident!"
         else:
-            db.Users.insert({'name':_name, 'password':_password, 'images':[]})
+            db.Users.insert({'name':_name, 'password':_password, 'images':[], 'avatar_url':'/static/avatar/default.jpg'})
             flash('You were successfully signed up')
             return redirect(url_for('login'))
 
@@ -265,7 +265,6 @@ def login(name=None):
         _name = request.form['inputUsername']
         _password = request.form['inputPassword']
         user = db.Users.find_one({'name':_name}, {'password':_password})
-        print user
 
         if user == None:
             error = "Username not exist!"
@@ -284,9 +283,9 @@ def logout():
 
 #only implement album to display, not main page to display
 #also not the user profile
-@app.route("/display/", methods=['post'])
-def display():
-    image_src = request.form.get("img_url")
+@app.route("/display/<image_src>", methods=['post','get'])
+def display(image_src=None):
+    image_src = "/static/images/" + image_src
     return render_template('display.html',image_src = image_src)
 
 @app.route("/album/")
