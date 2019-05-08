@@ -219,6 +219,22 @@ def logout():
     session.pop('username', None)
     return redirect(url_for('home'))
 
+#only implement album to display, not main page to display
+#also not the user profile
+@app.route("/display/", methods=['post'])
+def display():
+    image_src = request.form.get("img_url")
+    return render_template('display.html',image_src = image_src)
+
+@app.route("/album/")
+def album():
+    #replace with database imgs
+    #only for testing
+    imgs = ["/static/styles/la_muse.jpg","/static/styles/la_muse.jpg","/static/styles/la_muse.jpg",
+            "/static/styles/rain_princess.jpg","/static/styles/star.jpg","/static/styles/the_scream.jpg",
+            "/static/styles/the_scream.jpg","/static/styles/rain_princess.jpg","/static/styles/star.jpg"]
+    return render_template('album.html',imgs=imgs)
+
 if __name__ == "__main__":
     print(("* Loading model and Flask starting server..."
            "please wait until server has fully started"))
