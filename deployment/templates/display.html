@@ -38,7 +38,7 @@
 
     <main>
         <div align="center" style="margin-top:60px">
-            <img src="{{image_src}}">
+            <img src="{{image_src}}" class="img-display">
         </div>
         <div>
             {% if login %}
@@ -48,9 +48,13 @@
                     << Back To Album 
                 </button>
             </a>
-            <form method="post">
-                    <input type="submit" value="Discard" >
-            </form>
+            <div style="width:100%">
+             <div class="inner-div">
+                <form method="post">
+                        <button class="btn btn-warning btn-lg" type="submit" value="Discard" >Discard</button>
+                </form>
+            </div>
+            </div>
             {% else %}
             <a href="{{url_for('home')}}">
 

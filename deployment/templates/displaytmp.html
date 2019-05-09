@@ -38,20 +38,24 @@
 
     <main>
         <div align="center" style="margin-top:60px">
-            <img src="{{image_src}}">
+            <img src="{{image_src}}" class="img-display">
         </div>
         <div>
             {% if login %}
             <a href="{{url_for('album', username=username)}}">
 
                 <button type="button" class="btn btn-warning btn-lg" > 
-                    << Back To Album 
+                    << Back To Home
                 </button>
             </a>
-            <form method="post">
-                    <input type="submit" name="save" value="Save">
-                    <input type="submit" name="discard" value="Discard" >
-            </form>
+            <div style="width:100%">
+                <div class="inner-div">
+                    <form method="post">
+                        <button class="btn btn-warning btn-lg" type="submit" name="save" value="Save">Save</button>
+                        <button class="btn btn-warning btn-lg" type="submit" name="discard" value="Discard" >Discard</button>
+                    </form>
+                </div>
+            </div>
             {% else %}
             <a href="{{url_for('home')}}">
 

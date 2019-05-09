@@ -40,11 +40,61 @@
         <div class="album py-5" background-color="#ffcc00" style="margin-top:20px">
             <div class="container">
                 <div class="row">
-                    {% for img in imgs %}
-                    <div id="image_grid">
-                        <a href="{{url_for('display', image_src=img)}}"><img src = "/static/images/{{img}}" id="sub" class="img-fluid" alt="Responsive image"></a>
+                    {% if imgs|length > 0 %}
+                    <div class="column">
+                        {% if imgs|length % 4 > 0 %}
+                            {%for i in range(0, imgs|length // 4 + 1 )%}
+                            <a href="{{url_for('display', image_src=imgs[i*4])}}"><img src = "/static/images/{{imgs[i*4]}}" class="img-grid" alt="Responsive image"></a>
+                            {%endfor%}
+                        {% else %}
+                            {%for i in range(0, imgs|length // 4)%}
+                            <a href="{{url_for('display', image_src=imgs[i*4])}}"><img src = "/static/images/{{imgs[i*4]}}" class="img-grid" alt="Responsive image"></a>
+                            {%endfor%}
+                        {% endif %}
                     </div>
-                    {% endfor %}
+                    {% endif %}
+
+                    {% if imgs|length > 1 %}
+                    <div class="column">
+                        {% if imgs|length % 4 > 1 %}
+                            {%for i in range(0, imgs|length // 4 + 1 )%}
+                            <a href="{{url_for('display', image_src=imgs[i*4+1])}}"><img src = "/static/images/{{imgs[i*4+1]}}" class="img-grid" alt="Responsive image"></a>
+                            {%endfor%}
+                        {% else %}
+                            {%for i in range(0, imgs|length // 4)%}
+                            <a href="{{url_for('display', image_src=imgs[i*4+1])}}"><img src = "/static/images/{{imgs[i*4+1]}}" class="img-grid" alt="Responsive image"></a>
+                            {%endfor%}
+                        {% endif %}
+                    </div>
+                    {% endif %}
+
+                    {% if imgs|length > 2 %}
+                    <div class="column">
+                        {% if imgs|length % 4 > 2 %}
+                            {%for i in range(0, imgs|length // 4 + 1 )%}
+                            <a href="{{url_for('display', image_src=imgs[i*4+2])}}"><img src = "/static/images/{{imgs[i*4+2]}}" class="img-grid" alt="Responsive image"></a>
+                            {%endfor%}
+                        {% else %}
+                            {%for i in range(0, imgs|length // 4)%}
+                            <a href="{{url_for('display', image_src=imgs[i*4+2])}}"><img src = "/static/images/{{imgs[i*4+2]}}" class="img-grid" alt="Responsive image"></a>
+                            {%endfor%}
+                        {% endif %}
+                    </div>
+                    {% endif %}
+
+                    {% if imgs|length > 3 %}
+                    <div class="column">
+                        {% if imgs|length % 4 > 3 %}
+                            {%for i in range(0, imgs|length // 4 + 1 )%}
+                            <a href="{{url_for('display', image_src=imgs[i*4+3])}}"><img src = "/static/images/{{imgs[i*4+3]}}" class="img-grid" alt="Responsive image"></a>
+                            {%endfor%}
+                        {% else %}
+                            {%for i in range(0, imgs|length // 4)%}
+                            <a href="{{url_for('display', image_src=imgs[i*4+3])}}"><img src = "/static/images/{{imgs[i*4+3]}}" class="img-grid" alt="Responsive image"></a>
+                            {%endfor%}
+                        {% endif %}
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </div>

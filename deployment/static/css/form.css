@@ -51,7 +51,29 @@ a:hover{
     color: #1a1400
 }
 
-#sub{
-    width: auto;
-    height: auto;
+.img-grid {
+    max-height:280px;
+    max-width:280px;
+    height:auto;
+    width:auto;
+    padding: 8px 8px 8px 8px;
+    border-color: #4d3d00;
+    border-style: dashed;
+    border-radius: 10px;
+}
+
+.inner-div {
+  display: table;
+  margin: 0 auto;
+}
+
+.img-display {
+    padding: 20px 20px 20px 20px;
+    border-color: #4d3d00;
+    border-style: dashed;
+    border-radius: 10px;
+    max-height:500px;
+    max-width:500px;
+    height:auto;
+    width:auto;
 }
