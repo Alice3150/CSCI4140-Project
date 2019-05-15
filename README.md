@@ -1,5 +1,5 @@
 # CSCI4140-Project
-A web application for photo style transferring.
+A web application for photo style transferring. Repository: https://github.com/Alice3150/CSCI4140-Project.git. Master hash value: 44fa330389a668f6b1fe323e2344d07ff56328a8.
 
 # Dependency
 ```
